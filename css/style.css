@@ -1,123 +1,151 @@
-<style> :root {
-    --primary-color: #4a90e2;
-    --error-color: #e74c3c;
-    --success-color: #2ecc71;
-    --bg-color: #020817;
-    --card-bg: #ffffff;
-    --text-color: #333;
+:root {
+    --bg-gradient: #020817;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --primary-color: #3b82f6;
+    --error-color: #ef4444;
+    --success-color: #10b981;
+    --input-bg: #f9fafb;
+    --input-border: #e5e7eb;
+    --font-main: 'Outfit', sans-serif;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--bg-color);
+    font-family: var(--font-main);
+    background: var(--bg-gradient);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    color: var(--text-primary);
 }
 
-.contact-section {
+.main-container {
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
     background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 500px;
+    max-width: 480px;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.3s ease;
 }
 
-.contact-section h2 {
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.header {
     text-align: center;
-    font-size: 1.8rem;
+    margin-bottom: 2rem;
 }
 
-.form-group {
-    margin-bottom: 1rem;
-    position: relative;
-}
-
-.form-group label {
-    display: block;
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
     margin-bottom: 0.5rem;
-    color: #666;
-    font-size: 0.9rem;
 }
 
-.form-control {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+.header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
 }
 
-.form-control:focus {
-    outline: none;
-    border-color: var(--primary-color);
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
-.form-control:disabled {
-    background-color: #f1f5f9;
-    cursor: not-allowed;
-    border-color: #e2e8f0;
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
 }
 
 .row {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+    display: flex;
     gap: 1rem;
 }
 
-#mensagem-erro {
-    color: var(--error-color);
+.input-group.small {
+    flex: 0 0 80px;
+}
+
+label {
     font-size: 0.9rem;
-    margin-top: 5px;
-    min-height: 20px;
-    font-weight: bold;
+    font-weight: 500;
+    color: var(--text-secondary);
 }
 
-.btn-submit {
-    width: 100%;
-    padding: 14px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 8px;
+input {
+    padding: 0.875rem 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--input-border);
+    background: var(--input-bg);
+    font-family: inherit;
     font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background 0.3s;
+    color: var(--text-primary);
+    transition: all 0.2s;
+    outline: none;
 }
 
-.btn-submit:hover {
-    background-color: #357abd;
-}
-
-.loading {
+input:focus {
     border-color: var(--primary-color);
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-    background-size: 40px 40px;
-    animation: stripes 1s linear infinite;
+    box-shadow: 0 0 0 4px rgba(118, 75, 162, 0.1);
 }
 
-@keyframes stripes {
-    from {
-        background-position: 40px 0;
-    }
-
-    to {
-        background-position: 0 0;
-    }
+input:disabled {
+    background-color: #f3f4f6;
+    cursor: not-allowed;
+    color: #9ca3af;
 }
 
-</style>
+.status-message {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    height: 1.2rem;
+    font-weight: 500;
+    min-height: 1.2rem;
+}
+
+.status-message.error {
+    color: var(--error-color);
+}
+
+.status-message.success {
+    color: var(--success-color);
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 1.5rem;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .input-group.small {
+        flex: 1;
+    }
+}
