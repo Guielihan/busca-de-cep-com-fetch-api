@@ -24,30 +24,31 @@
             <form id="cep-form" class="form">
                 <div class="input-group">
                     <label for="cep">CEP</label>
-                    <input type="text" id="cep" placeholder="00000-000" maxlength="9" autofocus autocomplete="off">
+                    <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" autofocus
+                        autocomplete="postal-code">
                     <span id="status-message" class="status-message"></span>
                 </div>
 
                 <div class="input-group">
                     <label for="logradouro">Rua</label>
-                    <input type="text" id="logradouro" disabled>
+                    <input type="text" id="logradouro" name="logradouro" autocomplete="address-line1" disabled>
                 </div>
 
                 <div class="row">
                     <div class="input-group">
                         <label for="bairro">Bairro</label>
-                        <input type="text" id="bairro" disabled>
+                        <input type="text" id="bairro" name="bairro" autocomplete="address-level3" disabled>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-group">
                         <label for="localidade">ESTADO</label>
-                        <input type="text" id="localidade" disabled>
+                        <input type="text" id="localidade" name="estado" autocomplete="address-level1" disabled>
                     </div>
                     <div class="input-group">
                         <label for="uf">Cidade</label>
-                        <input type="text" id="uf" disabled>
+                        <input type="text" id="uf" name="cidade" autocomplete="address-level2" disabled>
                     </div>
                 </div>
             </form>
