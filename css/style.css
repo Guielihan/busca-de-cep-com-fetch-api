@@ -79,11 +79,14 @@ body {
     flex-direction: column;
     gap: 0.5rem;
     flex: 1;
+    min-width: 0;
+    /* Prevents overflow in flexbox */
 }
 
 .row {
     display: flex;
     gap: 1rem;
+    width: 100%;
 }
 
 .input-group.small {
@@ -97,6 +100,8 @@ label {
 }
 
 input {
+    width: 100%;
+    /* Ensures input stays within the input-group */
     padding: 0.875rem 1rem;
     border-radius: 10px;
     border: 2px solid var(--input-border);
