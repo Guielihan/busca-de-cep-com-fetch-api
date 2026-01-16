@@ -57,11 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 statusMessage.textContent = 'Endereço encontrado!';
                 statusMessage.classList.add('success');
                 statusMessage.classList.remove('error');
-                // Fill fields (Swapped to match swapped labels in HTML)
                 logradouroInput.value = data.logradouro || 'N/A';
                 bairroInput.value = data.bairro || 'N/A';
-                localidadeInput.value = data.uf || 'N/A'; // Filling UF label field
-                ufInput.value = data.localidade || 'N/A'; // Filling Cidade label field
+                localidadeInput.value = data.uf || 'N/A'; 
+                ufInput.value = data.localidade || 'N/A'; 
             }
         } catch (error) {
             clearForm();
